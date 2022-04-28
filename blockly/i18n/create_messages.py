@@ -29,12 +29,17 @@ _NEWLINE_PATTERN = re.compile('[\n\r]')
 
 
 def string_is_ascii(s):
-  try:
-    s.decode('ascii')
-    return True
-  except UnicodeEncodeError:
-    return False
-  
+    if sys.version_info.major < 3 and sys.version_info.minor < 7:
+        try:
+            s.encode('ascii')
+            return True
+        except UnicodeEncodeError:
+            return False
+    else:
+        # available since python 3.7
+        if s.isascii():
+            return True
+        return False
 
 def main():
   """Generate .js files defining Blockly core and language messages."""
@@ -72,7 +77,7 @@ def main():
             format(key, args.source_lang_file))
       sys.exit(1)
   sorted_keys = source_defs.keys()
-  sorted_keys.sort()
+  sorted(sorted_keys)
 
   # Read in synonyms file, which must be output in every language.
   synonym_defs = read_json_file(os.path.join(
