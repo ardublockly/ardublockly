@@ -24,7 +24,7 @@ Currently tested under Windows with Python 2.7 and 3.4 and in Linux and MacOS X 
 Please note that there are submodules in the repository that need initialisation. So, to correctly clone the Ardublockly repository:
 
 ```
-git clone https://github.com/carlosperate/ardublockly.git
+git clone https://github.com/ardublockly/ardublockly.git
 cd ardublockly
 git submodule update --init --recursive
 ```
@@ -89,6 +89,8 @@ This project has been inspired by [BlocklyDuino][16].
 
 Blockly original source is Copyright of Google Inc. [https://developers.google.com/blockly/][1]. A list of changes to the Blockly fork can be found in the [Blockly subdirectory README][17] file.
 
+### Since 28.04.2022
+This project was forked from `https://github.com/carlosperate/ardublockly`.
 
 ## License
 Copyright (c) 2016 carlosperate https://github.com/carlosperate/
