@@ -27,7 +27,7 @@ from google.appengine.ext import db
 from google.appengine.api import memcache
 import logging
 
-print "Content-Type: text/plain\n"
+print("Content-Type: text/plain\n")
 
 def keyGen():
   # Generate a random string of length KEY_LEN.
@@ -63,7 +63,7 @@ if "xml" in forms:
     xml = db.Text(xml_content, encoding="utf_8")
     row = Xml(key_name = xml_key, xml_hash = xml_hash, xml_content = xml)
     row.put()
-  print xml_key
+  print(xml_key)
 
 if "key" in forms:
   # Retrieve stored XML based on the provided key.
@@ -82,4 +82,4 @@ if "key" in forms:
     # Save to memcache for next hit.
     if not memcache.add("XML_" + key_provided, xml, 3600):
       logging.error("Memcache set failed.")
-  print xml.encode("utf-8")
+  print(xml.encode("utf-8"))
